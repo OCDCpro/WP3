@@ -307,4 +307,92 @@
   "discipline": ["computer engineering"],
   "workflow_stage": ["RTL synthesis", "placement", "routing", "DRC", "GDSII generation"]
 }
+{
+  "id": "google-skywater-pdk",
+  "title": "GitHub - SkyWater Open Source PDK",
+  "description": "GitHub for google / skywater-pdk, with SkyWater Open Source PDK, Current Status, Resources, SKY130 Process Node, PDK Contents, Support, ...",
+  "url": "https://github.com/google/skywater-pdk",
+  "type": "tutorial",
+  "category": ["installation", "learning", "workflow", "PDK", "visualization"],
+  "domain": ["analog", "digital", "layout", "synthesis", "verification"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["installation", "RTL synthesis", "floorplanning", "placement", "routing", "GDSII generation"]
+}
+{
+  "id": "google-skywater-tutorial1",
+  "title": "YouTube - SkyWater Tutorial Zero to ASIC (Matt Venn)",
+  "description": "YouTube Tutorial, Good introduction to chip design with google-skywater, openlane, ... - including rich valuable information to many topics of chip desing ...",
+  "url": "https://www.youtube.com/watch?v=lq2BpWwcyQM",
+  "type": "tutorial",
+  "category": ["learning", "workflow", "PDK", "visualization"],
+  "domain": ["analog", "digital", "layout", "synthesis", "verification"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["RTL synthesis", "floorplanning", "placement", "routing", "GDSII generation"]
+}
+{
+  "id": "google-skywater-tutorial2",
+  "title": "YouTube - Analog simulation with xschem and the skywater 130nm Process Development Kit (Stefan Schippers)",
+  "description": "YouTube Tutorial, Introduction to installation and usage of xschem for chip design with google-skywater (130nm process), ...",
+  "url": "https://www.youtube.com/watch?v=bYbkz8FXnsQ",
+  "type": "tutorial",
+  "category": ["learning", "workflow", "PDK", "visualization"],
+  "domain": ["analog", "layout", "synthesis", "verification"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["RTL synthesis", "floorplanning", "placement", "routing", "GDSII generation"]
+}
+{
+  "id": "skywater-pdk-install-guide",
+  "title": "GitHub - Out of Transistors: SkyWater PDK Install Guide",
+  "description": "GitHub for google / skywater-pdk, with SkyWater Open Source PDK, Current Status, Resources, SKY130 Process Node, PDK Contents, Support, ...",
+  "url": "https://github.com/philipwig/skywater-install.git",
+  "type": "tutorial",
+  "category": ["installation", "learning", "workflow", "PDK", "visualization"],
+  "domain": ["analog", "digital", "layout", "synthesis", "verification"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["installation", "RTL synthesis", "floorplanning", "placement", "routing", "GDSII generation"]
+}
+{
+  "id": "skywater-pdk-tutorial",
+  "title": "YouTube - SkyWater PDK Install Guide (Philip Wig)",
+  "description": "YouTube Tutorial, Install Guide for Skywater PDK - Python Script Install (Linux LXC, WSL, Configuration), Docker Install, Manual Install (Magic, open_pdks, xschem, ngspice), ...",
+  "url": "https://philipwig.com/tutorials/installing-skywater/",
+  "type": "tutorial",
+  "category": ["learning", "workflow", "PDK", "visualization"],
+  "domain": ["analog", "layout", "synthesis", "verification"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["installation", "RTL synthesis", "floorplanning", "placement", "routing", "GDSII generation"]
+}
+{
+  "id": "ihp-open-pdk-install-guide",
+  "title": "GitHub - IHP GmbH: IHP Open PDK",
+  "description": "GitHub for IHP Open PDK, with IHP Open Source PDK, Current status, SG13G2 Process Node, PDK Contents (Supported EDA Tools, Tool Versions), ...",
+  "url": "https://github.com/IHP-GmbH/IHP-Open-PDK",
+  "type": "tutorial",
+  "category": ["installation", "learning", "workflow", "PDK", "visualization"],
+  "domain": ["analog", "digital", "layout", "synthesis", "verification"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["installation", "RTL synthesis", "floorplanning", "placement", "routing", "GDSII generation"]
+}
+{
+  "id": "ihp-open-pdk-tutorial",
+  "title": "YouTube - Downloading IHP BiCMOS PDK on Ubuntu, Integrating with Xschem (Arash Katourani)",
+  "description": "YouTube Tutorial, Install Guide for IHP Open PDK - WSL-install, PDK download, install and configuration, examples for BICMOS applications, ...",
+  "url": "https://www.youtube.com/watch?v=cF-rP_EC80M",
+  "type": "tutorial",
+  "category": ["learning", "workflow", "PDK", "visualization"],
+  "domain": ["analog", "layout", "synthesis", "verification"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["RTL synthesis", "floorplanning", "placement", "routing", "GDSII generation"]
+}
+{
+  "id": "ieee-cass",
+  "title": "IEEE - Universalization of IC design in CASS",
+  "description": "Detailed IEEE Course: Introduction, Environment Setup, Analog Design Flow, Digital Design Flow, Preparing the design for tapeout, Design examples",
+  "url": "https://unic-cass.github.io/",
+  "type": "tutorial",
+  "category": ["installation", "learning", "workflow", "PDK", "visualization"],
+  "domain": ["analog", "digital", "layout", "synthesis", "verification"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["installation", "RTL synthesis", "floorplanning", "placement", "routing", "GDSII generation"]
+}
 ]

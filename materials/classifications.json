@@ -1,80 +1,93 @@
 {
   "type": {
-    "description": "Indicates the structural or technical type of the resource.",
-    "values": [
-      "tool",
-      "project",
-      "community",
-      "documentation",
-      "contest",
-      "tutorial",
-      "PDK"
-    ]
-  },
-  "category": {
-    "description": "Classifies the functional purpose or primary use of the resource.",
-    "values": [
-      "EDA",
-      "learning",
-      "prototyping",
-      "production",
-      "automation",
-      "tapeout",
-      "workflow",
-      "collaboration",
-      "education",
-      "simulation",
-      "measurement"
-    ]
-  },
-  "domain": {
-    "description": "Describes the technical or thematic domain covered by the resource.",
-    "values": [
-      "analog",
-      "digital",
-      "mixed-signal",
-      "RF",
-      "layout",
-      "synthesis",
-      "verification",
-      "system-on-chip",
-      "hardware security",
-      "microelectronics",
-      "semiconductor physics",
-      "standard cell design"
-    ]
-  },
-  "discipline": {
-    "description": "Academic or industrial discipline associated with the resource.",
-    "values": [
-      "electrical engineering",
-      "computer engineering",
-      "computer science",
-      "physics",
-      "AI engineering",
-      "cybersecurity",
-      "embedded systems",
-      "semiconductor design"
-    ]
-  },
-  "workflow_stage": {
-    "description": "Represents the specific stage of the IC design flow where the resource is applied (if applicable).",
-    "values": [
-      "specification",
-      "schematic capture",
-      "simulation",
-      "RTL synthesis",
-      "logic synthesis",
-      "floorplanning",
-      "placement",
-      "routing",
-      "DRC",
-      "LVS",
-      "extraction",
-      "GDSII generation",
-      "fabrication",
-      "testing",
-      "measurement"
-    ]
+    "description": "Indicates what kind of material or resource it is.",
+    "values": {
+      "tool": "Software or framework used in the IC design process.",
+      "doc": "Official or community documentation describing tools or methodologies.",
+      "tutorial": "Step-by-step learning resource, article, or lab guide.",
+      "project": "Design, SoC, or chip project that demonstrates an implementation.",
+      "pdk": "Process Design Kit defining device models and design rules.",
+      "community": "Organization, forum, or collective that promotes open-source IC design.",
+      "course": "Structured academic or training material.",
+      "video": "Recorded lecture, workshop, or explanatory video."
     }
+  },
+
+  "workflow_stage": {
+    "description": "Specifies where the resource fits in the RTL-to-GDSII design flow.",
+    "values": {
+      "installation": "Setting up tools, PDKs, and environment configurations.",
+      "specs": "System or circuit specification and initial design intent.",
+      "simulation": "Behavioral or functional validation of RTL or schematics.",
+      "synthesis": "Conversion of RTL to a gate-level netlist using logic synthesis.",
+      "floorplanning": "Defining the chip outline, core area, and macro placement.",
+      "placement": "Placing standard cells while meeting timing and congestion goals.",
+      "cts": "Clock Tree Synthesis — distributing the clock signal with minimal skew.",
+      "routing": "Global and detailed routing of interconnections between cells.",
+      "extraction": "Parasitic RC extraction for accurate timing and signal analysis.",
+      "sta": "Static Timing Analysis to verify timing constraints after routing.",
+      "drc": "Design Rule Check to verify layout compliance with PDK rules.",
+      "lvs": "Layout vs. Schematic verification to ensure logical equivalence.",
+      "gds": "Final GDSII export ready for fabrication.",
+      "signoff": "Final set of verification steps for manufacturability approval.",
+      "integration": "Combining analog and digital blocks in a mixed-signal top level."
+    }
+  },
+
+  "topics": {
+    "description": "Main technical focus or domain of the material.",
+    "values": {
+      "digital": "Covers digital circuits and implementation flows.",
+      "analog": "Covers analog or continuous-time circuits and their design.",
+      "mixed-signal": "Combines analog and digital domains (e.g., ADCs, PMICs).",
+      "education": "Focused on teaching methods, workshops, and learning resources."
+    }
+  },
+
+  "format": {
+    "description": "Indicates the form or medium of the resource.",
+    "values": {
+      "website": "Online resource or reference page.",
+      "pdf": "Static document such as a paper, lecture note, or report.",
+      "video": "Recorded or streamed content.",
+      "repo": "Source code or design files hosted in a version-controlled repository.",
+      "slides": "Presentation slides or visual learning materials."
+    }
+  },
+
+  "audience": {
+    "description": "Defines the intended audience or experience level.",
+    "values": {
+      "beginner": "New to IC design or open-source tools.",
+      "intermediate": "Has prior experience with basic design and simulation.",
+      "advanced": "Capable of complex implementation and optimization flows.",
+      "instructor": "Teaching or guiding others in IC design."
+    }
+  },
+
+  "license": {
+    "description": "Indicates the licensing model or usage rights of the resource.",
+    "values": {
+      "MIT": "Permissive open-source license commonly used in software projects.",
+      "BSD": "Permissive license with minimal restrictions.",
+      "GPL": "Copyleft license requiring derivative works to remain open-source.",
+      "Apache-2.0": "Permissive license with patent protection clauses.",
+      "CC-BY": "Creative Commons license requiring attribution.",
+      "CC-BY-SA": "Creative Commons license requiring attribution and share-alike.",
+      "proprietary": "Closed-source or restricted access resource.",
+      "unknown": "License not clearly specified."
+    }
+  },
+
+  "language": {
+    "description": "Primary language in which the resource is written or presented.",
+    "values": {
+      "en": "English",
+      "es": "Spanish",
+      "de": "German",
+      "pt": "Portuguese",
+      "fr": "French",
+      "it": "Italian"
+    }
+  }
 }

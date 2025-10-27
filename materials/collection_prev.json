@@ -1,0 +1,310 @@
+[
+  {
+    "id": "",
+    "title": "OpenROAD",
+    "description": "OpenROAD is an open-source Electronic Design Automation (EDA) tool for integrated circuit design. It provides a complete flow from RTL to GDSII, including floorplaning, placement, routing, and signoff.",
+    "url": "https://github.com/The-OpenROAD-Project/OpenROAD",
+    "type": "tool",
+    "category": [
+      "automation",
+      "EDA"
+    ],
+    "domain": [],
+    "discipline": [],
+    "workflow_stage": [
+      "placement",
+      "routing"
+    ]
+  },
+  {
+    "id": "",
+    "title": "OpenROAD-flow-script",
+    "description": "OpenROAD-flow-script is a script that automates the OpenROAD flow",
+    "url": "https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts",
+    "type": "tool",
+    "category": [
+      "EDA"
+    ],
+    "domain": [],
+    "discipline": [],
+    "workflow_stage": []
+  },
+  {
+    "id": "",
+    "title": "LibreLane",
+    "description": "LibreLane is an ASIC infrastructure library based on several components including OpenROAD, Yosys, Magic, Netgen, CVC, KLayout and a number of custom scripts for design exploration and optimization",
+    "url": "https://github.com/librelane/librelane",
+    "type": "tool",
+    "category": [
+      "EDA"
+    ],
+    "domain": [
+      "layout"
+    ],
+    "discipline": [],
+    "workflow_stage": []
+  },
+  {
+    "id": "",
+    "title": "Chipathon",
+    "description": "The Chipathon Contest, organized annually since 2021 by the IEEE Solid-State Circuits Society under its PICO (Platform for IC Design Outreach) program, is an open-source IC design competition now in its fifth edition. Held once per year, it aims to foster collaboration and education in analog and digital design using the GF180MCU open-source PDK. The contest encourages participation from pre-college students, undergraduates, and underrepresented regions, with teams mentored by experienced IC designers. This year\u2019s focus includes MOSbius-style chips, LLM-driven digital workflows, and AI-assisted analog layout automation using gLayout, promoting hands-on learning and community-driven innovation.",
+    "url": "https://sscs.ieee.org/technical-committees/tc-ose/sscs-pico-design-contest/",
+    "type": "contest",
+    "category": [
+      "learning",
+      "workflow",
+      "collaboration",
+      "education",
+      "automation"
+    ],
+    "domain": [
+      "layout",
+      "digital",
+      "analog"
+    ],
+    "discipline": [],
+    "workflow_stage": []
+  },
+  {
+    "id": "",
+    "title": "MOSbius Project",
+    "description": "MOSbius is an open-source educational chip platform designed to teach analog IC design through hands-on experimentation. It features programmable nMOS/pMOS transistors, analog building blocks (e.g., current mirrors, OTAs), and a switch matrix that allows users to wire circuits directly on-chip. Paired with simple tools and software, MOSbius enables students to design, program, and measure real circuits\u2014bridging the gap between simulation and silicon.",
+    "url": "https://mosbius.org/0_front_matter/intro.html",
+    "type": "Project",
+    "category": [
+      "simulation",
+      "education"
+    ],
+    "domain": [
+      "analog"
+    ],
+    "discipline": [],
+    "workflow_stage": [
+      "simulation"
+    ]
+  },
+  {
+    "id": "",
+    "title": "Chipdesign Germany",
+    "description": "Chipdesign Germany is a national initiative launched in 2024 to strengthen Germany\u2019s chip design ecosystem through open collaboration, education, and innovation. Supported by the German Federal Ministry of Education and Research (BMBF), it connects universities, startups, industry, and research centers to promote sovereign, sustainable microelectronics development. The platform fosters talent, supports open-source tools, and drives joint projects to boost Europe\u2019s competitiveness in semiconductor design.",
+    "url": "https://chipdesign.de/",
+    "type": "community",
+    "category": [
+      "collaboration",
+      "education",
+      "EDA"
+    ],
+    "domain": [
+      "microelectronics"
+    ],
+    "discipline": [
+      "semiconductor design"
+    ],
+    "workflow_stage": []
+  },
+  {
+    "id": "",
+    "title": "Yosys",
+    "description": "Yosys is an open-source framework for Verilog RTL synthesis. It supports numerous backends and integrates with tools like OpenROAD and nextpnr.",
+    "url": "https://github.com/YosysHQ/yosys",
+    "type": "tool",
+    "category": [
+      "EDA"
+    ],
+    "domain": [
+      "synthesis"
+    ],
+    "discipline": [],
+    "workflow_stage": [
+      "RTL synthesis"
+    ]
+  },
+  {
+    "id": "",
+    "title": "KLayout",
+    "description": "KLayout is a powerful open-source layout viewer and editor for integrated circuits, supporting GDSII and OASIS formats. It also features Python scripting for layout automation.",
+    "url": "https://www.klayout.de/",
+    "type": "tool",
+    "category": [
+      "automation",
+      "EDA"
+    ],
+    "domain": [
+      "layout",
+      "RF"
+    ],
+    "discipline": [],
+    "workflow_stage": []
+  },
+  {
+    "id": "",
+    "title": "Magic VLSI",
+    "description": "Magic is a venerable open-source VLSI layout tool. It supports DRC, LVS, and GDS export and is used in many open-source PDK workflows.",
+    "url": "http://opencircuitdesign.com/magic/",
+    "type": "tool",
+    "category": [
+      "workflow",
+      "EDA"
+    ],
+    "domain": [
+      "layout"
+    ],
+    "discipline": [],
+    "workflow_stage": [
+      "LVS",
+      "DRC"
+    ]
+  },
+  {
+    "id": "",
+    "title": "Netgen",
+    "description": "Netgen is a tool for netlist comparison (LVS) used to verify that layout and schematic netlists are functionally equivalent.",
+    "url": "http://opencircuitdesign.com/netgen/",
+    "type": "tool",
+    "category": [
+      "EDA"
+    ],
+    "domain": [
+      "layout",
+      "verification"
+    ],
+    "discipline": [],
+    "workflow_stage": [
+      "LVS"
+    ]
+  },
+  {
+    "id": "",
+    "title": "xschem",
+    "description": "xschem is an open-source schematic capture tool compatible with ngspice and other simulators. It is used widely in analog IC workflows with open-source PDKs.",
+    "url": "https://github.com/StefanSchippers/xschem",
+    "type": "tool",
+    "category": [
+      "workflow",
+      "EDA"
+    ],
+    "domain": [
+      "analog"
+    ],
+    "discipline": [],
+    "workflow_stage": [
+      "schematic capture"
+    ]
+  },
+  {
+    "id": "",
+    "title": "Skywater PDK Docs",
+    "description": "Official documentation for the Sky130 open-source PDK, maintained by Google and Skywater. Includes design rules, device models, and usage tutorials.",
+    "url": "https://skywater-pdk.readthedocs.io/en/main/",
+    "type": "documentation",
+    "category": [],
+    "domain": [],
+    "discipline": [],
+    "workflow_stage": []
+  },
+  {
+    "id": "",
+    "title": "Tiny Tapeout",
+    "description": "Tiny Tapeout is a project that helps you get your digital design manufactured using open-source tools and a collaborative MPW service. Ideal for educators and hobbyists.",
+    "url": "https://tinytapeout.com/",
+    "type": "project",
+    "category": [
+      "tapeout",
+      "education"
+    ],
+    "domain": [
+      "digital"
+    ],
+    "discipline": [],
+    "workflow_stage": []
+  },
+  {
+    "id": "",
+    "title": "FOSSi Foundation",
+    "description": "The Free and Open Source Silicon Foundation supports the development and use of open-source hardware, including digital and analog IC design tools and flows.",
+    "url": "https://fossi-foundation.org/",
+    "type": "community",
+    "category": [
+      "education"
+    ],
+    "domain": [
+      "digital",
+      "analog"
+    ],
+    "discipline": [],
+    "workflow_stage": []
+  },
+  {
+    "id": "",
+    "title": "Open Circuit Design",
+    "description": "A hub of open-source EDA tools including Magic, Netgen, and others. Maintained by Tim Edwards, key contributor to the open-source silicon movement.",
+    "url": "http://opencircuitdesign.com/",
+    "type": "community",
+    "category": [
+      "EDA"
+    ],
+    "domain": [
+      "layout"
+    ],
+    "discipline": [],
+    "workflow_stage": [
+      "LVS",
+      "DRC"
+    ]
+  },
+  {
+  "id": "opensta",
+  "title": "OpenSTA",
+  "description": "OpenSTA is an open-source Static Timing Analysis (STA) tool used to validate the timing of digital circuits after synthesis and placement. It supports timing reports and constraints using SDC format and is widely integrated into open-source EDA flows.",
+  "url": "https://github.com/The-OpenROAD-Project/OpenSTA",
+  "type": "tool",
+  "category": ["EDA", "simulation"],
+  "domain": ["digital", "verification"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["placement", "routing", "simulation"]
+},
+  {
+    "id": "openroad-gui-demo-matt-liberty",
+    "title": "OpenROAD GUI Demo by Matt Liberty",
+    "description": "A demonstration video by Matt Liberty showcasing the OpenROAD graphical interface. Covers viewing placement density heatmaps, power and routing congestion, net tracing, clock tree inspection, and timing analysis.",
+    "url": "https://www.youtube.com/watch?v=5lkKp-gL1Ow",
+    "type": "tutorial",
+    "category": ["learning", "EDA", "visualization"],
+    "domain": ["digital", "layout", "verification"],
+    "discipline": ["computer engineering"],
+    "workflow_stage": ["placement", "routing", "simulation"]
+  },
+  {
+  "id": "openlane-install-guide-vlsi-tool",
+  "title": "How to install OPENLANE (RTL to GDS II) open source free VLSI tool",
+  "description": "A tutorial video showing step‑by‑step installation of the OpenLane RTL‑to‑GDSII ASIC design flow, including Docker setup and SkyWater 130 nm PDK integration.",
+  "url": "https://www.youtube.com/watch?v=nBz9oFpbTv4",
+  "type": "tutorial",
+  "category": ["learning", "workflow", "EDA"],
+  "domain": ["digital", "layout", "synthesis"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["installation", "RTL synthesis", "floorplanning", "placement", "routing", "GDSII generation"]
+  },
+  {
+  "id": "openroad-gui-inspection-openlane",
+  "title": "Using the OpenROAD GUI to Inspect Your ASIC Designs",
+  "description": "A tutorial/demo video by Matt Venn and Matt Liberty showing how to use the OpenROAD GUI in the OpenLane flow. Covers placement and power heatmaps, routing congestion, net tracing, clock tree visualization and timing report inspection.",
+  "url": "https://www.youtube.com/watch?v=NuFJLy9ywVg&t=1556s",
+  "type": "tutorial",
+  "category": ["learning", "workflow", "visualization"],
+  "domain": ["digital", "layout", "verification"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["placement", "routing", "simulation"]
+ },
+ {
+  "id": "from-top-to-transistors-flow-video",
+  "title": "From Top to Transistors: Open‑Source Verilog to ASIC Flow",
+  "description": "A workshop‑style video demonstrating a full RTL‑to‑GDSII ASIC design flow using open‑source tools including Yosys, OpenROAD (with GUI), and the SkyWater 130 nm PDK. It covers synthesis, placement, routing, DRC, clock tree inspection, and GDSII generation.",
+  "url": "https://www.youtube.com/watch?v=Q99vxvszktI&t=1109s",
+  "type": "tutorial",
+  "category": ["learning", "workflow", "EDA", "visualization"],
+  "domain": ["digital", "layout", "synthesis", "verification"],
+  "discipline": ["computer engineering"],
+  "workflow_stage": ["RTL synthesis", "placement", "routing", "DRC", "GDSII generation"]
+}
+]

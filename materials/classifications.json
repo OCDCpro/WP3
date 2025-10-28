@@ -30,7 +30,8 @@
       "lvs": "Layout vs. Schematic verification to ensure logical equivalence.",
       "gds": "Final GDSII export ready for fabrication.",
       "signoff": "Final set of verification steps for manufacturability approval.",
-      "integration": "Combining analog and digital blocks in a mixed-signal top level."
+      "integration": "Combining analog and digital blocks in a mixed-signal top level.",
+      "verilog": "Writing RTL code in Verilog or SystemVerilog."
     }
   },
 

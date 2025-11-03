@@ -1972,5 +1972,109 @@
         "via ladder",
         "power ring"
     ]
+},{
+    "id": "",
+    "title": "RTL Synthesis — Advanced Digital Systems Design Fall 2024 documentation",
+    "description": "Academic documentation on RTL synthesis, optimization, and mapping across abstraction levels (System, RTL, Gate). Covers SystemVerilog guidelines, FSM modeling, and demonstration using Cadence Genus for mapping to generic and technology-specific gates.",
+    "type": "doc",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "synthesis"
+    ],
+    "format": [
+        "website"
+    ],
+    "audience": [
+        "intermediate",
+        "advanced",
+        "instructor"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "RTL",
+        "SystemVerilog",
+        "optimization",
+        "Genus",
+        "Cadence",
+        "FSM",
+        "logic inference",
+        "timing analysis"
+    ]
+},{
+    "id": "",
+    "title": "YUG9: Understanding the Yosys synth_ice40 flow with Krystine",
+    "description": "Demonstration of the Yosys synthesis flow for iCE40 FPGAs (`synth_ice40`). Details steps: elaboration, flattening, optimization (`opt`, `wreduce`), Tech Mapping (LUTs, ALU/Mac), memory mapping, and JSON output for NextPNR.",
+    "type": "video",
+    "topics": [
+        "digital"
+    ],
+    "workflow_stage": [
+        "synthesis"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "advanced"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "Yosys",
+        "FPGA",
+        "iCE40",
+        "NextPNR",
+        "synthesis flow",
+        "tech mapping",
+        "memory mapping",
+        "JSON"
+    ]
+},{
+    "id": "",
+    "title": "Yosys Tutorial: Practical Guide to Synthesis - Command Macro vs. Baby Steps Comparison",
+    "description": "Tutorial comparing the Yosys synthesis using the high-level `synth` macro versus executing individual 'baby steps' commands (`proc`, `opt`, `fsm`, `techmap`). Demonstrates netlist dumping and comparison to find differences in compactness.",
+    "type": "tutorial",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "synthesis"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "intermediate",
+        "beginner"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "Yosys",
+        "synthesis flow",
+        "command comparison",
+        "macro",
+        "netlist",
+        "proc",
+        "techmap",
+        "ABC"
+    ]
 }
 ]

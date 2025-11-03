@@ -1713,7 +1713,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://vlsitalks.com/physical-design/floorplan/",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -1739,7 +1739,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://www.youtube.com/watch?v=Z1Cxbn5LOYg",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -1765,7 +1765,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://www.youtube.com/watch?v=iKGxOVbwi40",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -1797,7 +1797,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://www.youtube.com/watch?v=YcwY1PH31qg",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -1830,7 +1830,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://www.youtube.com/watch?v=AW6OwZxY7VY",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -1863,7 +1863,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://www.youtube.com/watch?v=IG0EWRcDkl8",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -1896,7 +1896,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://www.youtube.com/watch?v=3n_v_1HRlzM",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -1927,7 +1927,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://www.youtube.com/watch?v=HVeSgMS8-SU",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -1960,7 +1960,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://www.youtube.com/watch?v=hqibU4UqoLk",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -1994,7 +1994,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://schaumont.dyn.wpi.edu/ece574f24/04synthesis.html",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -2027,7 +2027,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://www.youtube.com/watch?v=s7KLNb8G_sI",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -2062,7 +2062,7 @@
     ],
     "license": "",
     "language": "en",
-    "url": "",
+    "url": "https://www.youtube.com/watch?v=MRMKAOReHZI&list=PLtChGkQ0aIK-S0V_3RxgkGaZj8UgtjcyQ&index=8",
     "pdk": [],
     "last_checked": "2025-11-03",
     "related_handbook": [],
@@ -2075,6 +2075,220 @@
         "proc",
         "techmap",
         "ABC"
+    ]
+},{
+    "id": "",
+    "title": "PD Lec 50 Clock Tree Synthesis | CTS | VLSI | Physical Design",
+    "description": "Explains CTS objectives: minimizing skew (local/global) and latency, balancing load, and reducing power/crosstalk. Details pre/post-CTS scenarios and the H-tree clock distribution structure.",
+    "type": "video",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "cts"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "intermediate"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "https://www.youtube.com/watch?v=WiWj6z7byRY",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "clock tree synthesis",
+        "clock skew",
+        "latency",
+        "H-tree",
+        "crosstalk",
+        "power"
+    ]
+},{
+    "id": "",
+    "title": "Understanding Clock Tree Synthesis (CTS) in VLSI: A Comprehensive Guide",
+    "description": "Comprehensive guide on CTS placement in the VLSI flow, objectives (skew, latency, power), physical scenarios (pre/post-CTS, driver levels), and methodologies for achieving timing closure and low power designs.",
+    "type": "video",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "cts"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "intermediate",
+        "advanced"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "https://www.youtube.com/watch?v=b2QN5zeDinQ",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "clock tree synthesis",
+        "clock skew",
+        "latency",
+        "PPA",
+        "design flow",
+        "timing closure",
+        "EDA"
+    ]
+},{
+    "id": "",
+    "title": "PD Lec 33 - Placement and Optimization | VLSI | Physical Design",
+    "description": "Describes placement stages: Global Placement (approximate, allows overlap, timing-based binning), Detailed Placement (legalization, overlap removal), Legalization, and In-place optimization (PPA targets).",
+    "type": "video",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "placement"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "intermediate"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "https://www.youtube.com/watch?v=8d-1gPMKVXE",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "global placement",
+        "detailed placement",
+        "legalization",
+        "optimization",
+        "PPA",
+        "timing driven",
+        "Synopsis"
+    ]
+},{
+    "id": "",
+    "title": "PD Lec 34 - place-opt understanding | VLSI | Physical Design",
+    "description": "Details the 5 stages of the `Place_opt` command: Initial Place (scan chain opt), Initial DRC (HFN buffering, DRV fixing), Initial Opto, Final Place (congestion fix), and Final Opto (timing legalization).",
+    "type": "video",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "placement",
+        "routing",
+        "sta",
+        "drc",
+        "signoff"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "advanced"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "https://www.youtube.com/watch?v=4w1WXwOQTxw",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "placement optimization",
+        "DRV",
+        "scan chain",
+        "buffering",
+        "timing driven",
+        "congestion driven",
+        "Synopsis"
+    ]
+},{
+    "id": "",
+    "title": "What is Placement in VLSI Physical Design?",
+    "description": "Overview of placement stages (Global, Legalization, Detailed) and objectives (PPA, minimizing wire length/congestion). Discusses placement algorithms: analytic/force-directed methods, simulated annealing, min-cut partitioning, and ML integration.",
+    "type": "video",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "placement"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "intermediate",
+        "advanced"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "https://www.youtube.com/watch?v=kHrBdv8cer0",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "global placement",
+        "detailed placement",
+        "legalization",
+        "PPA",
+        "min-cut",
+        "simulated annealing",
+        "analytic placement",
+        "optimization",
+        "congestion"
+    ]
+},{
+    "id": "",
+    "title": "Digital VLSI Design, Lecture 10: I/O and Pad Ring",
+    "description": "Academic slides covering IC packaging (DIP, BGA), chip-to-package connection (Wire Bonding, Flip Chip/C4, RDL), I/O circuit requirements (ESD, high drive, voltage shifting), I/O cell types, and SiP/MCM methodologies.",
+    "type": "doc",
+    "topics": [
+        "digital",
+        "mixed-signal",
+        "analog",
+        "education"
+    ],
+    "workflow_stage": [
+        "drc",
+        "extraction",
+        "integration",
+        "specs"
+    ],
+    "format": [
+        "pdf",
+        "slides"
+    ],
+    "audience": [
+        "advanced",
+        "instructor"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "https://www.eng.biu.ac.il/temanad/files/2019/02/Lecture-10-IO.pdf",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "IO",
+        "packaging",
+        "ESD",
+        "Flip Chip",
+        "Wire Bonding",
+        "SiP",
+        "MCM",
+        "power distribution",
+        "RDL"
     ]
 }
 ]

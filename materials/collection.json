@@ -1694,5 +1694,283 @@
     "tags": [
       "forum"
     ]
-  }
+  },{
+    "id": "",
+    "title": "FLOORPLAN - VLSI TALKS",
+    "description": "Documentation detailing the Floorplan stage, covering input files (RTL, SDC, LEF, DEF, SPEF, UPF, GDS) [1-3], sanity checks [3-5], core parameters (Aspect Ratio, Utilization) [6, 7], macro guidelines [8], and types of blockages and floorplans [9, 10].",
+    "type": "doc",
+    "topics": [
+        "digital"
+    ],
+    "workflow_stage": [
+        "floorplanning"
+    ],
+    "format": [
+        "website"
+    ],
+    "audience": [
+        "intermediate"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+    ]
+  },{
+    "id": "",
+    "title": "PD Lec 15- Floor-planning [part-1] | VLSI | Physical Design",
+    "description": "Introduces standard cells, partitioning, hierarchical vs. flat design, defines macros (IP, black box, e.g., RAM, ROM, PLL) [11-13], standard cell rows [14], manufacturing grid [14, 15], and core utilization [15].",
+    "type": "course",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "floorplanning"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "beginner"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+    ]
+},{
+    "id": "",
+    "title": "PD Lec 16- Floor-planning [part-2] | VLSI | Physical Design",
+    "description": "Discusses Aspect Ratio (V/H routing resources ratio) [16, 17]. Defines Core Utilization calculation based on row and channel area [17, 18]. Differentiates logical pins (netlist) from physical ports (layout) and their placement in metal layers (e.g., M4, M6) [19-21].",
+    "type": "course",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "floorplanning"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "intermediate"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "aspect ratio",
+        "core utilization",
+        "placement area",
+        "pins",
+        "ports",
+        "metal layers"
+    ]
+},{
+    "id": "",
+    "title": "PD Lec 17- Floorplanning & IO Placement [part-3] | VLSI | Physical Design",
+    "description": "Classifies ports (data, clock, power, analog/digital) [22, 23]. Details Non-Default Rules (NDR) for clock ports (double width/spacing) for low resistance, low latency, and noise prevention [24-27]. Reviews placement quality checks (unplaced ports, blockages, guard rings) [28, 29].",
+    "type": "course",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "floorplanning"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "advanced"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "IO placement",
+        "Non-Default Rule (NDR)",
+        "clock ports",
+        "power ports",
+        "noise prevention",
+        "guard ring",
+        "latency"
+    ]
+},{
+    "id": "",
+    "title": "PD Lec 18- Macro Placement & Floor-planning [part-4] | VLSI | Physical Design",
+    "description": "Defines macros as Hard IPs optimized for PPA [30]. Explains their height (they block higher metal layers M3-M5) [31, 32]. Guidelines: placement at periphery [33], avoid center [34], ensure room for pin routing [35], and DFM rule restricting rotation to 0 or 180 degrees (substrate continuity) [36, 37].",
+    "type": "course",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "floorplanning"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "intermediate"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "macro placement",
+        "hard IP",
+        "PPA",
+        "routing blockage",
+        "DFM",
+        "rotation",
+        "substrate continuity"
+    ]
+},{
+    "id": "",
+    "title": "PD Lec 19- Macro Placement Guidelines & Floor-planning [part-5] | VLSI | Physical Design",
+    "description": "Focuses on channel spacing: abutment is possible if pins are central, but mandatory spacing is needed if pins are on the edge [38, 39]. Placement should group macros by common hierarchy [39]. Introduces Fly Line Analysis to reduce net delay and congestion [40, 41]. Macro location must be fixed during floorplan [41].",
+    "type": "course",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "floorplanning"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "advanced"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "macro placement",
+        "abutted",
+        "channel spacing",
+        "hierarchy",
+        "fly line analysis",
+        "congestion",
+        "fixed location"
+    ]
+},{
+    "id": "",
+    "title": "PD Lec 20- Macro Channel Spacing Estimation & Floor-planning [part-6] | VLSI | Physical Design",
+    "description": "Details the calculation of minimum channel spacing between macros. Defines Metal Pitch (center-to-center distance) [42]. Formula: (Total Number of Pins * Metal Pitch) / Effective Routing Layers [43, 44]. Emphasizes adding spacing for power nets (VDD/VSS) [44].",
+    "type": "course",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "floorplanning"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "advanced"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "macro placement",
+        "channel spacing",
+        "metal pitch",
+        "routing layers",
+        "calculation"
+    ]
+},{
+    "id": "",
+    "title": "PD Lec 21- Macro Placement Guidelines Floor-planning [part-7] | VLSI | Physical Design",
+    "description": "Analyzes notches (unwanted space) [45]. Explains how the tool's 'greedy algorithm' exploits notches for timing optimization, causing routing congestion/DRC issues [46, 47]. Details blockage types used to prevent this: Hard blockage (blocks everything), Soft blockage, Partial blockage (allows registers), and Allow Buffer Only [48-50]. Halo is defined as a hard blockage that moves with the macro [48, 51].",
+    "type": "course",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "floorplanning"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "advanced"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "macro placement",
+        "notches",
+        "blockages",
+        "greedy algorithm",
+        "congestion",
+        "Hard blockage",
+        "Halo"
+    ]
+},{
+    "id": "",
+    "title": "PD Lec 24 - Power planning and power mesh creation| Floor-planning | VLSI | Physical Design",
+    "description": "Explains power planning and routing resources. Higher metal layers have lower resistance [52, 53]. Describes the Power Ring (between die/core) [54] and the Power Grid/Mesh (top two layers in core) [55]. Standard Cell Rails (lowest layer, e.g., M2) connect to the mesh via a via ladder [55, 56].",
+    "type": "course",
+    "topics": [
+        "digital",
+        "education"
+    ],
+    "workflow_stage": [
+        "floorplanning"
+    ],
+    "format": [
+        "video"
+    ],
+    "audience": [
+        "advanced"
+    ],
+    "license": "",
+    "language": "en",
+    "url": "",
+    "pdk": [],
+    "last_checked": "2025-11-03",
+    "related_handbook": [],
+    "tags": [
+        "power planning",
+        "power mesh",
+        "power grid",
+        "metal layers",
+        "via ladder",
+        "power ring"
+    ]
+}
 ]

@@ -308,3 +308,91 @@
   "workflow_stage": ["RTL synthesis", "placement", "routing", "DRC", "GDSII generation"]
 }
 ]
+
+
+
+  {
+    "id": "",
+    "title": "Lecture 04 – Synthesis (ECE574, Patrick Schaumont)",
+    "description": "Lecture notes from Patrick Schaumont’s ECE574 course (Digital ASIC Design, WPI). Covers logic synthesis fundamentals, cell libraries, and the synthesis step from RTL to gates using open-source tools such as Yosys.",
+    "type": "tutorial",
+    "topics": ["digital","education"],
+    "workflow_stage": ["synthesis"],
+    "format": ["website"],
+    "audience": ["beginner","instructor"],
+    "license": "",
+    "language": "en",
+    "url": "https://schaumont.dyn.wpi.edu/ece574f24/04synthesis.html",
+    "pdk": [],
+    "last_checked": "2025-10-27",
+    "related_handbook": [],
+    "tags": ["lecture","schaumont","synthesis"]
+  },
+  {
+    "id": "",
+    "title": "Digital Synthesis Basics – VSD Lecture (Part 2)",
+    "description": "YouTube lecture by VSD (VLSI System Design) introducing the fundamentals of digital logic synthesis and the RTL-to-GDS flow using open-source EDA tools.",
+    "type": "video",
+    "topics": ["digital","education"],
+    "workflow_stage": ["synthesis"],
+    "format": ["video"],
+    "audience": ["beginner","instructor"],
+    "license": "",
+    "language": "en",
+    "url": "https://www.youtube.com/watch?v=TR3IMS_TYxw&list=PLtChGkQ0aIK-S0V_3RxgkGaZj8UgtjcyQ&index=2",
+    "pdk": [],
+    "last_checked": "2025-10-27",
+    "related_handbook": [],
+    "tags": ["vsd","lecture","synthesis"]
+  },
+  {
+    "id": "",
+    "title": "Clock Tree Synthesis – VSD Lecture (Part 7)",
+    "description": "Lecture from the VSD open-source flow series focusing on clock tree synthesis (CTS) and optimization in the RTL-to-GDSII process using OpenROAD.",
+    "type": "video",
+    "topics": ["digital","education"],
+    "workflow_stage": ["cts"],
+    "format": ["video"],
+    "audience": ["beginner","instructor"],
+    "license": "",
+    "language": "en",
+    "url": "https://www.youtube.com/watch?v=MRMKAOReHZI&list=PLtChGkQ0aIK-S0V_3RxgkGaZj8UgtjcyQ&index=7",
+    "pdk": [],
+    "last_checked": "2025-10-27",
+    "related_handbook": [],
+    "tags": ["vsd","cts","lecture"]
+  },
+  {
+    "id": "",
+    "title": "OpenROAD Tutorial – Placement and Routing Overview",
+    "description": "Tutorial video explaining placement and routing steps in the OpenROAD flow. Demonstrates floorplanning, global and detailed placement, and routing inspection through the OpenROAD GUI.",
+    "type": "video",
+    "topics": ["digital","education"],
+    "workflow_stage": ["placement","routing"],
+    "format": ["video"],
+    "audience": ["beginner","intermediate"],
+    "license": "",
+    "language": "en",
+    "url": "https://www.youtube.com/watch?v=s7KLNb8G_sI",
+    "pdk": [],
+    "last_checked": "",
+    "related_handbook": ["concepts/placement","concepts/routing"],
+    "tags": ["openroad","tutorial","placement","routing"]
+  },
+  {
+    "id": "",
+    "title": "Yosys Documentation – Using Cell Libraries for Synthesis",
+    "description": "Official YosysHQ documentation describing how to use Liberty cell libraries during the synthesis process. Explains mapping of RTL logic to technology-specific standard cells and use of synthesis commands.",
+    "type": "doc",
+    "topics": ["digital","education"],
+    "workflow_stage": ["synthesis"],
+    "format": ["website"],
+    "audience": ["intermediate","instructor"],
+    "license": "",
+    "language": "en",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/latest/using_yosys/synthesis/cell_libs.html",
+    "pdk": [],
+    "last_checked": "",
+    "related_handbook": ["concepts/synthesis_netlists"],
+    "tags": ["yosys","documentation","cell-libraries"]
+  }

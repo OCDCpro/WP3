@@ -1,132 +1,582 @@
 <html>
-    <body>
-        <h1>OCDCpro Teach-the-Teacher</h1>
-        
-        <div id="tableContainer"></div>
-        
-        <script>
-            // Function to load JSON data from file
-            async function loadCollectionData() {
-                try {
-                    const response = await fetch('materials/collection.json');
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    const collectionData = await response.json();
-                    return collectionData;
-                } catch (error) {
-                    console.error('Error loading collection data:', error);
-                    return [];
-                }
-            }
+  <head>
+    <meta charset="utf-8" />
+    <title>OCDCpro Teach-the-Teacher — Materials (Editable)</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      h1 { margin-bottom: 0.25rem; }
+      .toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 12px 0 4px; }
+      .toolbar .group { display: flex; align-items: center; gap: 6px; }
+      .toolbar label { font-weight: 600; font-size: 14px; }
+      select, input[type="file"], button { padding: 4px 8px; }
+      button { border: 1px solid #ccc; background: #fafafa; border-radius: 6px; cursor: pointer; }
+      button.primary { background: #0b5cff; color: #fff; border-color: #0b5cff; }
+      button.danger { background: #ff3b30; color: #fff; border-color: #ff3b30; }
+      button.ghost { background: transparent; border-color: #bbb; }
 
-            // Function to create and display the table
-            async function displayCollectionTable() {
-                const container = document.getElementById('tableContainer');
-                
-                // Load data from the JSON file
-                const collectionData = await loadCollectionData();
-                
-                if (collectionData.length === 0) {
-                    container.innerHTML = '<p>Error loading collection data. Please check the console for details.</p>';
-                    return;
-                }
-                
-                // Create table element
-                const table = document.createElement('table');
-                table.style.borderCollapse = 'collapse';
-                table.style.width = '1024px';
-                table.style.marginTop = '20px';
-                
-                // Create table header
-                const thead = document.createElement('thead');
-                const headerRow = document.createElement('tr');
-                const headers = ['Title', 'Type', 'Description', 'Categories', 'Domains', 'URL'];
-                
-                headers.forEach(headerText => {
-                    const th = document.createElement('th');
-                    th.textContent = headerText;
-                    th.style.border = '1px solid #ddd';
-                    th.style.padding = '8px';
-                    th.style.backgroundColor = '#f2f2f2';
-                    th.style.textAlign = 'left';
-                    headerRow.appendChild(th);
-                });
-                
-                thead.appendChild(headerRow);
-                table.appendChild(thead);
-                
-                // Create table body
-                const tbody = document.createElement('tbody');
-                
-                collectionData.forEach(item => {
-                    const row = document.createElement('tr');
-                    
-                    // Title
-                    const titleCell = document.createElement('td');
-                    titleCell.textContent = item.title;
-                    titleCell.style.border = '1px solid #ddd';
-                    titleCell.style.padding = '8px';
-                    titleCell.style.fontWeight = 'bold';
-                    row.appendChild(titleCell);
-                    
-                    // Type
-                    const typeCell = document.createElement('td');
-                    typeCell.textContent = item.type;
-                    typeCell.style.border = '1px solid #ddd';
-                    typeCell.style.padding = '8px';
-                    row.appendChild(typeCell);
-                    
-                    // Description (truncated for readability)
-                    const descCell = document.createElement('td');
-                    descCell.textContent = item.description;
-                    descCell.style.border = '1px solid #ddd';
-                    descCell.style.padding = '8px';
-                    descCell.style.maxWidth = '300px';
-                    row.appendChild(descCell);
-                    
-                    // Categories
-                    const categoryCell = document.createElement('td');
-                    categoryCell.textContent = item.category.join(', ');
-                    categoryCell.style.border = '1px solid #ddd';
-                    categoryCell.style.padding = '8px';
-                    row.appendChild(categoryCell);
-                    
-                    // Domains
-                    const domainCell = document.createElement('td');
-                    domainCell.textContent = item.domain.join(', ');
-                    domainCell.style.border = '1px solid #ddd';
-                    domainCell.style.padding = '8px';
-                    row.appendChild(domainCell);
-                    
-                    // URL (as clickable link)
-                    const urlCell = document.createElement('td');
-                    const link = document.createElement('a');
-                    link.href = item.url;
-                    link.textContent = 'Link';
-                    link.target = '_blank';
-                    link.style.color = '#0066cc';
-                    urlCell.appendChild(link);
-                    urlCell.style.border = '1px solid #ddd';
-                    urlCell.style.padding = '8px';
-                    row.appendChild(urlCell);
-                    
-                    tbody.appendChild(row);
-                });
-                
-                table.appendChild(tbody);
-                container.appendChild(table);
-                
-                // Add a title above the table
-                const title = document.createElement('h2');
-                title.textContent = 'Collection Data Table';
-                title.style.marginTop = '20px';
-                container.insertBefore(title, table);
-            }
-            
-            // Display the table when the page loads
-            window.onload = displayCollectionTable;
-        </script>
+      table { border-collapse: collapse; width: 100%; max-width: 1080px; margin-top: 10px; }
+      th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: top; }
+      thead th { background: #f2f2f2; }
+      .badge { display: inline-block; margin: 2px 6px 2px 0; padding: 2px 6px; border-radius: 10px; background: #eef3ff; border: 1px solid #cfe0ff; font-size: 12px; }
+      .count { font-size: 12px; color: #666; margin-left: 6px; }
+      .note { font-size: 12px; color: #555; margin-top: 6px; }
+      a { color: #0066cc; }
+      .wrap { max-width: 1120px; }
+      .muted { color: #666; font-size: 12px; }
+      .actions { display: flex; gap: 6px; }
 
-    </body>
+      /* Modal */
+      .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: none; align-items: center; justify-content: center; padding: 16px; }
+      .modal { width: 100%; max-width: 880px; background: #fff; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,.25); overflow: hidden; }
+      .modal header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #f8f9fb; border-bottom: 1px solid #e6e6e6; }
+      .modal header h2 { margin: 0; font-size: 18px; }
+      .modal .content { max-height: 70vh; overflow: auto; padding: 16px; }
+      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .grid .full { grid-column: 1 / -1; }
+      .field { display: flex; flex-direction: column; gap: 4px; }
+      .field label { font-weight: 600; font-size: 13px; }
+      .field input[type="text"], .field textarea { border: 1px solid #ccc; border-radius: 6px; padding: 8px; font: inherit; }
+      .field textarea { min-height: 70px; }
+      .help { font-size: 11px; color: #666; }
+      .modal footer { display: flex; gap: 8px; justify-content: flex-end; padding: 12px 16px; border-top: 1px solid #e6e6e6; }
+      .warning { color: #b26b00; font-size: 12px; margin-top: 6px; }
+
+      @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>OCDCpro Teach-the-Teacher</h1>
+
+      <!-- Filters toolbar -->
+      <div class="toolbar" id="toolbar">
+        <div class="group">
+          <label for="typeFilter">Type:</label>
+          <select id="typeFilter"><option value="__all__">All</option></select>
+        </div>
+        <div class="group">
+          <label for="topicFilter">Topic:</label>
+          <select id="topicFilter"><option value="__all__">All</option></select>
+        </div>
+        <div class="group">
+          <label for="stageFilter">Stage:</label>
+          <select id="stageFilter"><option value="__all__">All</option></select>
+        </div>
+        <div class="group">
+          <label for="formatFilter">Format:</label>
+          <select id="formatFilter"><option value="__all__">All</option></select>
+        </div>
+        <div class="group">
+          <label for="audienceFilter">Audience:</label>
+          <select id="audienceFilter"><option value="__all__">All</option></select>
+        </div>
+        <div class="group">
+          <label for="langFilter">Language:</label>
+          <select id="langFilter"><option value="__all__">All</option></select>
+        </div>
+        <div class="group">
+          <label for="pdkFilter">PDK:</label>
+          <select id="pdkFilter"><option value="__all__">All</option></select>
+        </div>
+        <span id="resultCount" class="count"></span>
+      </div>
+
+      <!-- Editor toolbar -->
+      <div class="toolbar">
+        <div class="group">
+          <button id="toggleEdit" class="ghost">Enable edit mode</button>
+          <button id="addBtn" class="primary" title="Add new material">Add material</button>
+          <button id="importBtn">Import JSON</button>
+          <input id="importFile" type="file" accept="application/json" style="display:none" />
+          <button id="exportBtn">Export JSON</button>
+        </div>
+      </div>
+
+      <div id="tableContainer"></div>
+      <p class="note">Tip: comparte links con filtros: <code>?type=tool&topic=digital&stage=sta&format=repo&audience=beginner&lang=en&pdk=sky130</code>.</p>
+      <p class="note">Edit mode es 100% cliente: modifica la tabla en memoria y te permite <b>Export JSON</b> para reemplazar tu <code>materials/collection.json</code>.</p>
+    </div>
+
+    <!-- Modal Editor -->
+    <div class="modal-backdrop" id="editorBackdrop" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="editorTitle">
+        <header>
+          <h2 id="editorTitle">Edit material</h2>
+          <div class="actions">
+            <button id="deleteBtn" class="danger" title="Delete material">Delete</button>
+            <button id="closeBtn" class="ghost">Close</button>
+          </div>
+        </header>
+        <div class="content">
+          <div id="warnings" class="warning" style="display:none"></div>
+          <form id="editorForm">
+            <div class="grid">
+              <div class="field full">
+                <label for="f_title">Title</label>
+                <input id="f_title" type="text" placeholder="e.g., OpenROAD Flow Scripts" required />
+              </div>
+
+              <div class="field full">
+                <label for="f_url">URL</label>
+                <input id="f_url" type="text" placeholder="https://..." />
+              </div>
+
+              <div class="field full">
+                <label for="f_description">Description</label>
+                <textarea id="f_description" placeholder="Short summary..."></textarea>
+              </div>
+
+              <div class="field">
+                <label for="f_type">Type</label>
+                <input id="f_type" type="text" placeholder="tool, doc, tutorial, project..." />
+                <div class="help">Single or comma-separated. Uses <code>classifications.type</code> if present.</div>
+              </div>
+
+              <div class="field">
+                <label for="f_topics">Topics</label>
+                <input id="f_topics" type="text" placeholder="digital, analog, mixed-signal, education" />
+                <div class="help">Comma-separated.</div>
+              </div>
+
+              <div class="field">
+                <label for="f_stage">Workflow Stage</label>
+                <input id="f_stage" type="text" placeholder="specs, simulation, synthesis, floorplanning, ..." />
+                <div class="help">Comma-separated.</div>
+              </div>
+
+              <div class="field">
+                <label for="f_format">Format</label>
+                <input id="f_format" type="text" placeholder="repo, site, video, paper..." />
+                <div class="help">Comma-separated.</div>
+              </div>
+
+              <div class="field">
+                <label for="f_audience">Audience</label>
+                <input id="f_audience" type="text" placeholder="beginner, intermediate, advanced" />
+                <div class="help">Comma-separated.</div>
+              </div>
+
+              <div class="field">
+                <label for="f_language">Language</label>
+                <input id="f_language" type="text" placeholder="en, es, de..." />
+                <div class="help">Comma-separated ISO codes or names.</div>
+              </div>
+
+              <div class="field">
+                <label for="f_pdk">PDK</label>
+                <input id="f_pdk" type="text" placeholder="sky130, gf180, ihp-sg13g2" />
+                <div class="help">Comma-separated.</div>
+              </div>
+
+              <div class="field">
+                <label for="f_license">License</label>
+                <input id="f_license" type="text" placeholder="MIT, Apache-2.0, CC-BY-4.0..." />
+                <div class="help">Comma-separated.</div>
+              </div>
+
+              <div class="field">
+                <label for="f_tags">Tags</label>
+                <input id="f_tags" type="text" placeholder="yosys, verilog, sky130, tutorial" />
+                <div class="help">Comma-separated.</div>
+              </div>
+
+              <div class="field">
+                <label for="f_related">Related Handbook</label>
+                <input id="f_related" type="text" placeholder="IC Design Guide: digital_flow, analog_flow..." />
+                <div class="help">Comma-separated identifiers or page anchors.</div>
+              </div>
+
+              <div class="field">
+                <label for="f_lastChecked">Last checked</label>
+                <input id="f_lastChecked" type="text" placeholder="YYYY-MM-DD" />
+              </div>
+
+              <div class="field">
+                <label for="f_id">ID (optional)</label>
+                <input id="f_id" type="text" placeholder="Leave blank to auto-generate" />
+                <div class="help">Useful if you reference items elsewhere.</div>
+              </div>
+
+              <div class="field full">
+                <label for="f_extra">Extra fields (JSON)</label>
+                <textarea id="f_extra" placeholder='{"contact":"...","notes":"..."}'></textarea>
+                <div class="help">Optional: merged into the object.</div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <footer>
+          <button id="saveBtn" class="primary">Save</button>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const COLLECTION_URL = 'materials/collection.json';
+      const CLASSIFICATIONS_URL = 'materials/classifications.json';
+
+      let COLLECTION = [];
+      let CLASSIFICATIONS = null;
+      let EDIT_MODE = false;
+      let CURRENT_EDIT_INDEX = -1; // -1 => new item
+
+      let FILTERS = { type:'__all__', topic:'__all__', stage:'__all__', format:'__all__', audience:'__all__', lang:'__all__', pdk:'__all__' };
+      const toArray = (v) => Array.isArray(v) ? v : (v == null ? [] : [v]);
+
+      function csvToArr(s){
+        if(!s) return [];
+        return s.split(',').map(x=>x.trim()).filter(Boolean);
+      }
+
+      function arrOrStr(x){
+        // keep arrays as arrays; singletons can be strings or arrays depending on your schema preference
+        if (Array.isArray(x)) return x;
+        if (x == null || x === '') return [];
+        return [String(x)];
+      }
+
+      async function fetchJSON(url) {
+        try {
+          const res = await fetch(url);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          return await res.json();
+        } catch (e) { console.warn(`Could not load ${url}:`, e); return null; }
+      }
+
+      async function loadData(){
+        const [col, cls] = await Promise.all([ fetchJSON(COLLECTION_URL), fetchJSON(CLASSIFICATIONS_URL) ]);
+        COLLECTION = Array.isArray(col) ? col : [];
+        CLASSIFICATIONS = cls;
+      }
+
+      function getQueryParams(){
+        const p = new URLSearchParams(window.location.search);
+        return {
+          type: p.get('type')||'__all__', topic:p.get('topic')||'__all__', stage:p.get('stage')||'__all__',
+          format:p.get('format')||'__all__', audience:p.get('audience')||'__all__', lang:p.get('lang')||'__all__', pdk:p.get('pdk')||'__all__'
+        };
+      }
+
+      function updateURL(){
+        const p = new URLSearchParams();
+        Object.entries(FILTERS).forEach(([k,v])=>{ if(v && v!=='__all__') p.set(k,v); });
+        const qs = p.toString();
+        const newURL = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+        window.history.replaceState({}, '', newURL);
+      }
+
+      function uniqSorted(arr){ return Array.from(new Set(arr)).filter(Boolean).sort((a,b)=>a.localeCompare(b)); }
+
+      function deriveFacetValues(field){
+        const values = [];
+        COLLECTION.forEach(it => { toArray(it[field]).forEach(v => values.push(String(v))); });
+        return uniqSorted(values);
+      }
+
+      function classifValues(path){
+        if(!CLASSIFICATIONS) return null;
+        let node = CLASSIFICATIONS; for(const p of path){ node = node?.[p]; if(!node) return null; }
+        if (node && typeof node === 'object' && !Array.isArray(node)) return Object.keys(node);
+        return null;
+      }
+
+      function fillSelectOptions(id, options){
+        const sel = document.getElementById(id);
+        sel.querySelectorAll('option:not([value="__all__"])').forEach(o=>o.remove());
+        options.forEach(opt=>{ const o=document.createElement('option'); o.value=opt; o.textContent=opt; sel.appendChild(o); });
+      }
+
+      function buildFilters(){
+        const typeVals   = classifValues(['type','values'])            || deriveFacetValues('type');
+        const topicVals  = classifValues(['topics','values'])          || deriveFacetValues('topics');
+        const stageVals  = classifValues(['workflow_stage','values'])  || deriveFacetValues('workflow_stage');
+        const formatVals = classifValues(['format','values'])          || deriveFacetValues('format');
+        const audVals    = classifValues(['audience','values'])        || deriveFacetValues('audience');
+        const langVals   = classifValues(['language','values'])        || deriveFacetValues('language');
+        const pdkVals    = deriveFacetValues('pdk');
+
+        fillSelectOptions('typeFilter',   typeVals);
+        fillSelectOptions('topicFilter',  topicVals);
+        fillSelectOptions('stageFilter',  stageVals);
+        fillSelectOptions('formatFilter', formatVals);
+        fillSelectOptions('audienceFilter', audVals);
+        fillSelectOptions('langFilter',   langVals);
+        fillSelectOptions('pdkFilter',    pdkVals);
+
+        // init values
+        document.getElementById('typeFilter').value    = FILTERS.type;
+        document.getElementById('topicFilter').value   = FILTERS.topic;
+        document.getElementById('stageFilter').value   = FILTERS.stage;
+        document.getElementById('formatFilter').value  = FILTERS.format;
+        document.getElementById('audienceFilter').value= FILTERS.audience;
+        document.getElementById('langFilter').value    = FILTERS.lang;
+        document.getElementById('pdkFilter').value     = FILTERS.pdk;
+
+        [ 'typeFilter','topicFilter','stageFilter','formatFilter','audienceFilter','langFilter','pdkFilter' ]
+          .forEach(id=>{
+            document.getElementById(id).addEventListener('change', ()=>{
+              FILTERS.type     = document.getElementById('typeFilter').value;
+              FILTERS.topic    = document.getElementById('topicFilter').value;
+              FILTERS.stage    = document.getElementById('stageFilter').value;
+              FILTERS.format   = document.getElementById('formatFilter').value;
+              FILTERS.audience = document.getElementById('audienceFilter').value;
+              FILTERS.lang     = document.getElementById('langFilter').value;
+              FILTERS.pdk      = document.getElementById('pdkFilter').value;
+              renderTable();
+              updateURL();
+            });
+          });
+      }
+
+      function createTableSkeleton(){
+        const container = document.getElementById('tableContainer');
+        container.innerHTML = '';
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        const tr = document.createElement('tr');
+        const headers = [ 'id', 'Title', 'Type', 'Topics', 'Stage', 'Format', 'Audience', 'Language', 'PDK', 'URL', 'Actions'];
+        headers.forEach(h=>{ const th=document.createElement('th'); th.textContent=h; tr.appendChild(th); });
+        thead.appendChild(tr);
+        const tbody = document.createElement('tbody');
+        table.appendChild(thead); table.appendChild(tbody); container.appendChild(table);
+      }
+
+      function matchesFacet(val, filterVal){ if(!filterVal || filterVal==='__all__') return true; const arr=toArray(val).map(String); return arr.includes(filterVal); }
+
+      function renderTable(){
+        const tbody = document.querySelector('#tableContainer table tbody');
+        tbody.innerHTML = '';
+        const filtered = COLLECTION.filter(item => (
+          matchesFacet(item.type, FILTERS.type) &&
+          matchesFacet(item.topics, FILTERS.topic) &&
+          matchesFacet(item.workflow_stage, FILTERS.stage) &&
+          matchesFacet(item.format, FILTERS.format) &&
+          matchesFacet(item.audience, FILTERS.audience) &&
+          matchesFacet(item.language, FILTERS.lang) &&
+          matchesFacet(item.pdk, FILTERS.pdk)
+        ));
+
+        filtered.forEach(item => {
+          const tr = document.createElement('tr');
+
+          // ID
+          const tdId = document.createElement('td');
+          tdId.style.fontFamily = 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+          tdId.textContent = (item.id ?? '').toString();
+          tr.appendChild(tdId);
+
+
+          const tdTitle = document.createElement('td');
+          tdTitle.style.fontWeight='600';
+          tdTitle.textContent = item.title || '(untitled)';
+          tr.appendChild(tdTitle);
+
+          const tdType = document.createElement('td'); tdType.textContent = toArray(item.type).join(', '); tr.appendChild(tdType);
+
+          const tdTopics = document.createElement('td'); toArray(item.topics).forEach(t=>{ const b=document.createElement('span'); b.className='badge'; b.textContent=t; tdTopics.appendChild(b); }); tr.appendChild(tdTopics);
+
+          const tdStage = document.createElement('td'); toArray(item.workflow_stage).forEach(s=>{ const b=document.createElement('span'); b.className='badge'; b.textContent=s; tdStage.appendChild(b); }); tr.appendChild(tdStage);
+
+          const tdFormat = document.createElement('td'); toArray(item.format).forEach(f=>{ const b=document.createElement('span'); b.className='badge'; b.textContent=f; tdFormat.appendChild(b); }); tr.appendChild(tdFormat);
+
+          const tdAudience = document.createElement('td'); toArray(item.audience).forEach(a=>{ const b=document.createElement('span'); b.className='badge'; b.textContent=a; tdAudience.appendChild(b); }); tr.appendChild(tdAudience);
+
+          const tdLang = document.createElement('td'); tdLang.textContent = toArray(item.language).join(', '); tr.appendChild(tdLang);
+
+          const tdPDK = document.createElement('td'); toArray(item.pdk).forEach(p=>{ const b=document.createElement('span'); b.className='badge'; b.textContent=p; tdPDK.appendChild(b); }); tr.appendChild(tdPDK);
+
+          const tdUrl = document.createElement('td'); if(item.url){ const a=document.createElement('a'); a.href=item.url; a.target='_blank'; a.textContent='Link'; tdUrl.appendChild(a); } tr.appendChild(tdUrl);
+
+          const tdAct = document.createElement('td');
+          if (EDIT_MODE){
+            const eBtn = document.createElement('button'); eBtn.textContent='Edit'; eBtn.addEventListener('click', ()=> openEditorById(item));
+            tdAct.appendChild(eBtn);
+          } else {
+            tdAct.innerHTML = '<span class="muted">—</span>';
+          }
+          tr.appendChild(tdAct);
+
+          tbody.appendChild(tr);
+        });
+        document.getElementById('resultCount').textContent = `${filtered.length} item(s)`;
+      }
+
+      // ===== Editing logic =====
+      function toggleEdit(){
+        EDIT_MODE = !EDIT_MODE;
+        document.getElementById('toggleEdit').textContent = EDIT_MODE ? 'Disable edit mode' : 'Enable edit mode';
+        renderTable();
+      }
+
+      function openEditorById(item){
+        const idx = COLLECTION.indexOf(item);
+        CURRENT_EDIT_INDEX = idx;
+        openEditor(item);
+      }
+
+      function openEditor(item){
+        const isNew = (item == null);
+        const title = document.getElementById('editorTitle');
+        title.textContent = isNew ? 'Add material' : 'Edit material';
+        document.getElementById('deleteBtn').style.display = isNew ? 'none' : 'inline-block';
+
+        // Fill fields
+        document.getElementById('f_title').value = item?.title || '';
+        document.getElementById('f_url').value = item?.url || '';
+        document.getElementById('f_description').value = item?.description || '';
+        document.getElementById('f_type').value = toArray(item?.type).join(', ');
+        document.getElementById('f_topics').value = toArray(item?.topics).join(', ');
+        document.getElementById('f_stage').value = toArray(item?.workflow_stage).join(', ');
+        document.getElementById('f_format').value = toArray(item?.format).join(', ');
+        document.getElementById('f_audience').value = toArray(item?.audience).join(', ');
+        document.getElementById('f_language').value = toArray(item?.language).join(', ');
+        document.getElementById('f_pdk').value = toArray(item?.pdk).join(', ');
+        document.getElementById('f_license').value = toArray(item?.license).join(', ');
+        document.getElementById('f_tags').value = toArray(item?.tags).join(', ');
+        document.getElementById('f_related').value = toArray(item?.related_handbook).join(', ');
+        document.getElementById('f_lastChecked').value = item?.last_checked || '';
+        document.getElementById('f_id').value = item?.id || '';
+
+        // Hide extra fields not in the common set
+        const knownKeys = new Set(['title','url','description','type','topics','workflow_stage','format','audience','language','pdk','license','tags','related_handbook','last_checked','id']);
+        const extras = {};
+        if(item){ Object.keys(item).forEach(k=>{ if(!knownKeys.has(k)) extras[k] = item[k]; }); }
+        document.getElementById('f_extra').value = Object.keys(extras).length ? JSON.stringify(extras, null, 2) : '';
+
+        document.getElementById('warnings').style.display='none';
+        showModal(true);
+      }
+
+      function showModal(v){
+        const bd = document.getElementById('editorBackdrop');
+        bd.style.display = v ? 'flex' : 'none';
+        bd.setAttribute('aria-hidden', v ? 'false' : 'true');
+      }
+
+      function validateAgainstClassifications(obj){
+        const warns = [];
+        function check(path, field){
+          if(!CLASSIFICATIONS) return; // skip if not provided
+          const allowed = classifValues(path);
+          if(!allowed) return;
+          const vals = toArray(obj[field]);
+          vals.forEach(v=>{ if(v && !allowed.includes(v)) warns.push(`${field}: "${v}" not in classifications (${allowed.join(', ')})`); });
+        }
+        check(['type','values'], 'type');
+        check(['topics','values'], 'topics');
+        check(['workflow_stage','values'], 'workflow_stage');
+        check(['format','values'], 'format');
+        check(['audience','values'], 'audience');
+        check(['language','values'], 'language');
+        return warns;
+      }
+
+      function collectForm(){
+        const obj = {
+          title: document.getElementById('f_title').value.trim(),
+          url: document.getElementById('f_url').value.trim() || undefined,
+          description: document.getElementById('f_description').value.trim() || undefined,
+          type: csvToArr(document.getElementById('f_type').value),
+          topics: csvToArr(document.getElementById('f_topics').value),
+          workflow_stage: csvToArr(document.getElementById('f_stage').value),
+          format: csvToArr(document.getElementById('f_format').value),
+          audience: csvToArr(document.getElementById('f_audience').value),
+          language: csvToArr(document.getElementById('f_language').value),
+          pdk: csvToArr(document.getElementById('f_pdk').value),
+          license: csvToArr(document.getElementById('f_license').value),
+          tags: csvToArr(document.getElementById('f_tags').value),
+          related_handbook: csvToArr(document.getElementById('f_related').value),
+          last_checked: document.getElementById('f_lastChecked').value.trim() || undefined,
+          id: document.getElementById('f_id').value.trim() || undefined,
+        };
+
+        // merge extras JSON if provided
+        const extraRaw = document.getElementById('f_extra').value.trim();
+        if(extraRaw){
+          try { Object.assign(obj, JSON.parse(extraRaw)); }
+          catch(e){ alert('Invalid JSON in Extra fields'); return null; }
+        }
+
+        // normalize empty arrays to undefined to keep JSON compact
+        ['type','topics','workflow_stage','format','audience','language','pdk','license','tags','related_handbook']
+          .forEach(k=>{ if(Array.isArray(obj[k]) && obj[k].length===0) delete obj[k]; });
+        if(!obj.title){ alert('Title is required'); return null; }
+        return obj;
+      }
+
+      function saveEditor(){
+        const obj = collectForm();
+        if(!obj) return;
+        if(!obj.id){ obj.id = `itm_${Date.now().toString(36)}`; }
+
+        const warns = validateAgainstClassifications(obj);
+        const warnEl = document.getElementById('warnings');
+        if(warns.length){ warnEl.textContent = 'Warnings: ' + warns.join(' | '); warnEl.style.display='block'; } else { warnEl.style.display='none'; }
+
+        if(CURRENT_EDIT_INDEX === -1){
+          COLLECTION.push(obj);
+        } else {
+          COLLECTION[CURRENT_EDIT_INDEX] = obj;
+        }
+        showModal(false);
+        renderTable();
+      }
+
+      function deleteCurrent(){
+        if(CURRENT_EDIT_INDEX < 0) return;
+        if(confirm('Delete this material?')){
+          COLLECTION.splice(CURRENT_EDIT_INDEX,1);
+          showModal(false);
+          renderTable();
+        }
+      }
+
+      function exportJSON(){
+        const data = JSON.stringify(COLLECTION, null, 2);
+        const blob = new Blob([data], {type:'application/json'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'collection.json';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(()=> URL.revokeObjectURL(a.href), 5000);
+      }
+
+      function importJSONFromFile(file){
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const arr = JSON.parse(reader.result);
+            if(!Array.isArray(arr)) throw new Error('File must be a JSON array');
+            COLLECTION = arr;
+            renderTable();
+            alert('Imported successfully. Remember to Export JSON to save to disk.');
+          } catch(e) {
+            alert('Invalid JSON: ' + e.message);
+          }
+        };
+        reader.readAsText(file);
+      }
+
+      // ===== setup =====
+      async function init(){
+        FILTERS = getQueryParams();
+        await loadData();
+        createTableSkeleton();
+        buildFilters();
+        renderTable();
+
+        document.getElementById('toggleEdit').addEventListener('click', toggleEdit);
+        document.getElementById('addBtn').addEventListener('click', ()=>{ CURRENT_EDIT_INDEX = -1; openEditor(null); });
+        document.getElementById('exportBtn').addEventListener('click', exportJSON);
+        document.getElementById('importBtn').addEventListener('click', ()=> document.getElementById('importFile').click());
+        document.getElementById('importFile').addEventListener('change', (e)=>{ const f=e.target.files?.[0]; if(f) importJSONFromFile(f); e.target.value=''; });
+
+        document.getElementById('closeBtn').addEventListener('click', ()=> showModal(false));
+        document.getElementById('saveBtn').addEventListener('click', saveEditor);
+        document.getElementById('deleteBtn').addEventListener('click', deleteCurrent);
+      }
+
+      window.onload = init;
+    </script>
+  </body>
 </html>
